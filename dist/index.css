@@ -1,0 +1,213 @@
+.dsg-container {
+  cursor: cell;
+  background: white;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  border: solid 1px rgb(232, 235, 237);
+  border-top: none;
+  border-left: none;
+  box-sizing: border-box;
+}
+
+.dsg-corner-indicator {
+  margin: auto;
+  width: 0;
+  border-bottom: solid 10px rgb(157, 166, 171);
+  border-left: solid 10px transparent;
+}
+
+.dsg-header-row {
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 2;
+  box-shadow: 0 1px 0 rgb(232, 235, 237);
+}
+
+.dsg-row {
+  position: relative;
+}
+
+.dsg-cell {
+  display: flex;
+  align-items: center;
+  border: solid 1px rgb(232, 235, 237);
+  border-bottom: none;
+  border-right: none;
+  box-sizing: border-box;
+  position: absolute;
+}
+
+.dsg-cell-disabled {
+  background: rgb(250, 250, 250);
+}
+
+.dsg-cell-header, .dsg-cell-gutter {
+  color: rgb(157, 166, 171);
+  padding: 0 10px;
+  transition: color .1s;
+  z-index: 1;
+}
+
+.dsg-cell-gutter {
+  position: sticky;
+  background: white;
+  box-shadow: 1px 0 0 rgb(232, 235, 237);
+  padding: 0 5px;
+  justify-content: center;
+}
+
+.dsg-cell-gutter.dsg-cell-header {
+  z-index: 3;
+  box-shadow: 1px 0 0 rgb(232, 235, 237), 0 1px 0 rgb(232, 235, 237), 0 2px 0 white;
+}
+
+.dsg-cell-gutter.dsg-cell-header:before {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  background: rgb(232, 235, 237);
+  bottom: -2px;
+  left: -1px;
+}
+
+.dsg-cell-header-active, .dsg-cell-gutter-active {
+  color: black;
+}
+
+.dsg-cell-gutter-active {
+  box-shadow: 2px 0 rgb(69, 128, 230);
+}
+
+.dsg-cell-header-active {
+  box-shadow: 0 2px rgb(69, 128, 230);
+}
+
+.dsg-active-cell, .dsg-selection-rect {
+  position: absolute;
+  border: solid 2px rgb(69, 128, 230);
+  box-sizing: border-box;
+  border-radius: 2px;
+  transition: all .1s;
+  pointer-events: none;
+}
+
+.dsg-active-cell-focus {
+  box-shadow: 0 2px 5px rgba(0,0,0,.4);
+}
+
+.dsg-active-cell-disabled, .dsg-selection-rect-disabled {
+  border-color: #9DA6AB;
+}
+
+.dsg-selection-rect {
+  background: rgba(69, 128, 230, 0.04);
+}
+
+.dsg-selection-rect-disabled {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.dsg-input {
+  display: block;
+  flex: 1;
+  width: 50%;
+  border: none;
+  align-self: stretch;
+  box-sizing: border-box;
+  background: none;
+  padding: 0 10px;
+  font-size: 0.8rem;
+  outline: none;
+}
+
+.dsg-input-align-right {
+  text-align: right;
+}
+
+.dsg-input-suffix {
+  margin-right: 10px;
+}
+
+.dsg-input-progress-indicator {
+  position: absolute;
+  height: 4px;
+  background: #a7c78f;
+  left: 0;
+  bottom: 0;
+}
+
+.dsg-add-row {
+  background: rgb(250, 250, 250);
+  padding: 7px 10px;
+  border: solid 1px rgb(232, 235, 237);
+  border-top: none;
+  box-sizing: border-box;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  position: relative;
+  transition: background-color .2s;
+  width: 100%;
+  font-size: 1rem;
+  outline: none;
+}
+
+.dsg-add-row:hover {
+  background: rgb(246, 246, 246);
+}
+
+.dsg-add-row:before {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  margin-right: 10px;
+  height: 2px;
+  background: rgb(157, 166, 171);
+}
+
+.dsg-add-row:after {
+  content: "";
+  display: inline-block;
+  width: 2px;
+  margin-right: 10px;
+  height: 10px;
+  background: rgb(157, 166, 171);
+  position: absolute;
+  left: 14px;
+}
+
+.dsg-add-row-input {
+  margin: 0 10px;
+  font-size: 1rem;
+  padding: 5px;
+  width: 35px;
+  border: solid 1px rgb(157, 166, 171);
+  border-radius: 3px;
+  outline: none;
+}
+
+.dsg-checkbox {
+  margin: auto;
+}
+
+.dsg-context-menu {
+  position: fixed;
+  background: white;
+  z-index: 10000;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px 2px rgba(60,64,67,.15);
+  padding: 5px 0;
+}
+
+.dsg-context-menu-item {
+  padding: 3px 20px;
+  cursor: default;
+}
+
+.dsg-context-menu-item:hover {
+  background: #fafafa;
+}
