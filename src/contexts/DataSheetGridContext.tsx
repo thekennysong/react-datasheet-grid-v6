@@ -19,4 +19,5 @@ export const DataSheetGridContext = React.createContext<GridContext>({
   onInsertRowAfter: () => undefined,
   onDuplicateRows: () => undefined,
   onDeleteRows: () => undefined,
+  rowClassName: '',
 })

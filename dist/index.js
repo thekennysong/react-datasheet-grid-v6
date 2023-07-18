@@ -586,7 +586,8 @@ var DataSheetGridContext = React.createContext({
   },
   onDeleteRows: function onDeleteRows() {
     return undefined;
-  }
+  },
+  rowClassName: ''
 });
 
 var Row = React.memo(function (_ref) {
@@ -608,7 +609,8 @@ var Row = React.memo(function (_ref) {
       rowHeight = _useContext.rowHeight,
       onInsertRowAfter = _useContext.onInsertRowAfter,
       onDuplicateRows = _useContext.onDuplicateRows,
-      onDeleteRows = _useContext.onDeleteRows;
+      onDeleteRows = _useContext.onDeleteRows,
+      rowClassName = _useContext.rowClassName;
 
   var headerRow = rowIndex === 0;
 
@@ -617,9 +619,10 @@ var Row = React.memo(function (_ref) {
   }
 
   return React.createElement("div", {
-    className: cx({
-      'dsg-row': true
-    }),
+    className: cx('dsg-row', typeof rowClassName === 'string' ? rowClassName : null, typeof rowClassName === 'function' ? rowClassName({
+      rowData: data,
+      rowIndex: rowIndex
+    }) : null),
     style: _extends({}, style, {
       width: innerWidth + "px"
     })
@@ -1061,7 +1064,8 @@ function DataSheetGrid(_ref4) {
       _ref4$disableContextM = _ref4.disableContextMenu,
       disableContextMenuRaw = _ref4$disableContextM === void 0 ? false : _ref4$disableContextM,
       _ref4$renderGutterCol = _ref4.renderGutterColumn,
-      renderGutterColumn = _ref4$renderGutterCol === void 0 ? DEFAULT_RENDER_GUTTER_COLUMN : _ref4$renderGutterCol;
+      renderGutterColumn = _ref4$renderGutterCol === void 0 ? DEFAULT_RENDER_GUTTER_COLUMN : _ref4$renderGutterCol,
+      rowClassName = _ref4.rowClassName;
   var disableContextMenu = disableContextMenuRaw || lockRows;
   var columns = React.useMemo(function () {
     return [{
@@ -1902,9 +1906,10 @@ function DataSheetGrid(_ref4) {
       isCellDisabled: isCellDisabled,
       onInsertRowAfter: onInsertRowAfter,
       onDuplicateRows: onDuplicateRows,
-      onDeleteRows: onDeleteRows
+      onDeleteRows: onDeleteRows,
+      rowClassName: rowClassName
     };
-  }, [focus, editing, activeCell, columnWidths, columnOffsets, innerWidth, rowHeight, headerRowHeight, selection, columns, data, onChange, onDoneEditing, isCellDisabled, onInsertRowAfter, onDuplicateRows, onDeleteRows]);
+  }, [focus, editing, activeCell, columnWidths, columnOffsets, innerWidth, rowHeight, headerRowHeight, selection, columns, data, onChange, onDoneEditing, isCellDisabled, onInsertRowAfter, onDuplicateRows, onDeleteRows, rowClassName]);
   return React.createElement(DataSheetGridContext.Provider, {
     value: gridContext
   }, React.createElement("div", {

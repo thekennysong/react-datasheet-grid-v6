@@ -63,6 +63,7 @@ export function DataSheetGrid<TRow = any>({
   lockRows = false,
   disableContextMenu: disableContextMenuRaw = false,
   renderGutterColumn = DEFAULT_RENDER_GUTTER_COLUMN,
+  rowClassName,
 }: DataSheetGridProps<TRow>) {
   const disableContextMenu = disableContextMenuRaw || lockRows
 
@@ -1062,6 +1063,7 @@ export function DataSheetGrid<TRow = any>({
       onInsertRowAfter,
       onDuplicateRows,
       onDeleteRows,
+      rowClassName,
     }),
     [
       focus,
@@ -1081,6 +1083,7 @@ export function DataSheetGrid<TRow = any>({
       onInsertRowAfter,
       onDuplicateRows,
       onDeleteRows,
+      rowClassName,
     ]
   )
 

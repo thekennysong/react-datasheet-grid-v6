@@ -59,6 +59,9 @@ interface DataSheetGridProps<TRow = any> {
   counterComponent?: (props: CounterComponentProps) => Element | null
   contextMenuComponent?: (props: ContextMenuProps) => Element | null
   renderGutterColumn: ColumnRenderFunction<TRow>
+  rowClassName?:
+    | string
+    | ((opt: { rowData: T; rowIndex: number }) => string | undefined)
 }
 
 interface ColumnRenderFunctionOptions<TRow = any> {
@@ -119,4 +122,7 @@ interface GridContext<TRow = any> {
   onInsertRowAfter: (row: number, count = 1) => void
   onDuplicateRows: (rowMin, rowMax = rowMin) => void
   onDeleteRows: (rowMin, rowMax = rowMin) => void
+  rowClassName?:
+    | string
+    | ((opt: { rowData: TRow; rowIndex: number }) => string | undefined)
 }
