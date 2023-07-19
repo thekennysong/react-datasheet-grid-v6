@@ -1064,7 +1064,8 @@ function DataSheetGrid(_ref4) {
       disableContextMenuRaw = _ref4$disableContextM === void 0 ? false : _ref4$disableContextM,
       _ref4$renderGutterCol = _ref4.renderGutterColumn,
       renderGutterColumn = _ref4$renderGutterCol === void 0 ? DEFAULT_RENDER_GUTTER_COLUMN : _ref4$renderGutterCol,
-      rowClassName = _ref4.rowClassName;
+      _ref4$rowClassName = _ref4.rowClassName,
+      rowClassName = _ref4$rowClassName === void 0 ? '' : _ref4$rowClassName;
   console.log(rowClassName, 'rowClassName');
   var disableContextMenu = disableContextMenuRaw || lockRows;
   var columns = useMemo(function () {
