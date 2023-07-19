@@ -65,7 +65,6 @@ export function DataSheetGrid<TRow = any>({
   renderGutterColumn = DEFAULT_RENDER_GUTTER_COLUMN,
   rowClassName = '',
 }: DataSheetGridProps<TRow>) {
-  console.log(rowClassName, 'rowClassName')
   const disableContextMenu = disableContextMenuRaw || lockRows
 
   // Add gutter column

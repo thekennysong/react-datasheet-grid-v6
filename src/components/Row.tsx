@@ -32,8 +32,6 @@ export const Row = React.memo(
       return null
     }
 
-    console.log('oh hi')
-
     return (
       <div
         className={cx(
