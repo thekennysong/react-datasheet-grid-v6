@@ -23,6 +23,7 @@ export const Row = React.memo(
       onInsertRowAfter,
       onDuplicateRows,
       onDeleteRows,
+      rowClassName,
     } = useContext(DataSheetGridContext)
 
     const headerRow = rowIndex === 0
@@ -31,11 +32,17 @@ export const Row = React.memo(
       return null
     }
 
+    console.log('oh hi')
+
     return (
       <div
-        className={cx({
-          'dsg-row': true,
-        })}
+        className={cx(
+          'dsg-row',
+          typeof rowClassName === 'string' ? rowClassName : null,
+          typeof rowClassName === 'function'
+            ? rowClassName({ rowData: data, rowIndex: rowIndex })
+            : null
+        )}
         style={{ ...style, width: `${innerWidth}px` }}
       >
         {columnWidths.map((width, columnIndex) => {
