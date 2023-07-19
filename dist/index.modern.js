@@ -616,7 +616,6 @@ var Row = memo(function (_ref) {
     return null;
   }
 
-  console.log('oh hi');
   return createElement("div", {
     className: cx('dsg-row', typeof rowClassName === 'string' ? rowClassName : null, typeof rowClassName === 'function' ? rowClassName({
       rowData: data,
@@ -1066,7 +1065,6 @@ function DataSheetGrid(_ref4) {
       renderGutterColumn = _ref4$renderGutterCol === void 0 ? DEFAULT_RENDER_GUTTER_COLUMN : _ref4$renderGutterCol,
       _ref4$rowClassName = _ref4.rowClassName,
       rowClassName = _ref4$rowClassName === void 0 ? '' : _ref4$rowClassName;
-  console.log(rowClassName, 'rowClassName');
   var disableContextMenu = disableContextMenuRaw || lockRows;
   var columns = useMemo(function () {
     return [{
