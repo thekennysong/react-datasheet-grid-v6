@@ -220,7 +220,7 @@ var Component$2 = function Component(_ref) {
     style: {
       pointerEvents: focus ? 'auto' : 'none'
     },
-    value: rawValue ? rawValue === '0' ? '-' : Math.abs(Number(rawValue)) > 1000 ? Math.round(Number(rawValue)) : rawValue : '-',
+    value: rawValue ? rawValue === '0' ? '-' : rawValue : '-',
     onChange: function onChange(e) {
       if (!(typeObj !== null && typeObj !== void 0 && typeObj.includes('Formula'))) {
         var targetValue = e.target.value;

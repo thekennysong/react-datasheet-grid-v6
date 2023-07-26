@@ -28,9 +28,9 @@ const Component = ({ focus, onChange, value, typeObj }) => {
       className='dsg-input dsg-input-align-right'
       ref={ref}
       style={{ pointerEvents: focus ? 'auto' : 'none' }}
-      value={rawValue ? rawValue === '0' ? '-' : Math.abs(Number(rawValue)) > 1000 ? Math.round(Number(rawValue)) : rawValue : '-'}
+      value={rawValue ? (rawValue === '0' ? '-' : rawValue) : '-'}
       onChange={(e) => {
-        if(!typeObj?.includes('Formula')){
+        if (!typeObj?.includes('Formula')) {
           const targetValue = e.target.value
           const number = parseFloat(targetValue)
           setRawValue(targetValue)
@@ -46,7 +46,6 @@ export function floatColumn<TRow = any>({
   ...rest
 }: Partial<Column<TRow>> & { key: string }): Partial<Column<TRow>> {
   return {
-
     render: ({ focus, rowData, setRowData }) => (
       <Component
         typeObj={rowData?.['typeObj']}
